@@ -5,9 +5,9 @@ services:
     container_name: portainer
     restart: always
     environment:
-      - VIRTUAL_HOST=portainer-workshop.ingweb.com
+      - VIRTUAL_HOST=portainer-workshop.final-ingweb.com
       - VIRTUAL_PORT=9000
-      - LETSENCRYPT_HOST=portainer-workshop.ingweb.com
+      - LETSENCRYPT_HOST=portainer-workshop.final-ingweb.com
       - LETSENCRYPT_EMAIL=daniel.santar@udea.edu.co
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
