@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  taller-db:
+    image: tallerdb:1.0.0
+    build:
+      context: ./final-web/db
+      dockerfile: Dockerfile
+    env_file:
+      - .db.env
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - taller
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 20s
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  db:
+    external: true
+
+networks:
+  taller:
+    external: true

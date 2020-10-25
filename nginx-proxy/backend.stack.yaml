@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+  backend:
+    image: backend:1.0.0
+    build:
+      context: ./final-web-backend
+      dockerfile: Dockerfile
+    command: gunicorn app.main:app -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:80
+    expose:
+      - "80"
+    env_file:
+      - .backend.env
+    networks:
+      - taller
+      - tallerproxy
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 20s
+      restart_policy:
+        condition: on-failure
+
+networks:
+  taller:
+    external: true
+  tallerproxy:
+    external: true
