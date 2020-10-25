@@ -4,11 +4,11 @@ services:
     image: portainer/portainer
     container_name: portainer
     restart: always
-    environment:
-      - VIRTUAL_HOST=portainer.vendecrispetas.com
-      - VIRTUAL_PORT=9000
-      - LETSENCRYPT_HOST=portainer.vendecrispetas.com
-      - LETSENCRYPT_EMAIL=daniel.santar@udea.edu.co
+    # environment:
+      # - VIRTUAL_HOST=portainer.vendecrispetas.com
+      # - VIRTUAL_PORT=9000
+      # - LETSENCRYPT_HOST=portainer.vendecrispetas.com
+      # - LETSENCRYPT_EMAIL=daniel.santar@udea.edu.co
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainerdata:/data
