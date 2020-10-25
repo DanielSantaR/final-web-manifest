@@ -14,8 +14,8 @@ services:
     env_file:
       - .backend.env
     networks:
-      - backend
-      - backendproxy
+      - vendecrispetas
+      - vendecrispetasproxy
     deploy:
       replicas: 1
       update_config:
@@ -25,7 +25,7 @@ services:
         condition: on-failure
 
 networks:
-  backend:
+  vendecrispetas:
     external: true
-  backendproxy:
+  vendecrispetasproxy:
     external: true
