@@ -10,8 +10,8 @@ services:
     env_file:
       - .taller.env
     networks:
-      - taller
-      - tallerproxy
+      - vendecrispetas
+      - vendecrispetasproxy
     deploy:
       replicas: 1
       update_config:
@@ -21,7 +21,7 @@ services:
         condition: on-failure
 
 networks:
-  taller:
+  vendecrispetas:
     external: true
-  tallerproxy:
+  vendecrispetasproxy:
     external: true
