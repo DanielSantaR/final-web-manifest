@@ -9,11 +9,13 @@ services:
     command: gunicorn app.main:app -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:80
     expose:
       - "80"
+    ports:
+      - "80:80"
     env_file:
       - .backend.env
     networks:
-      - vendecrispetas
-      - vendecrispetasproxy
+      - backend
+      - backendproxy
     deploy:
       replicas: 1
       update_config:
@@ -23,7 +25,7 @@ services:
         condition: on-failure
 
 networks:
-  vendecrispetas:
+  backend:
     external: true
-  vendecrispetasproxy:
+  backendproxy:
     external: true
