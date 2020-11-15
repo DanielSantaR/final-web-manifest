@@ -5,10 +5,10 @@ services:
     container_name: portainer
     restart: always
     environment:
-      - VIRTUAL_HOST=portainer.vendecrispetas.com
+      - VIRTUAL_HOST=portainer-taller.duckdns.org
       - VIRTUAL_PORT=9000
-      - LETSENCRYPT_HOST=portainer.vendecrispetas.com
-      - LETSENCRYPT_EMAIL=daniel.santar@udea.edu.co
+      - LETSENCRYPT_HOST=portainer-taller.duckdns.org
+      - LETSENCRYPT_EMAIL=danielsantar98@gmail.com
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainerdata:/data
